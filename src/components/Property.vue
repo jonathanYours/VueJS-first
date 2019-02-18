@@ -66,7 +66,7 @@ export default {
     closeEditBloc(message) {
       this.$emit('close',message,this.property);
     }
-  },
+  }, 
 }
 </script>
 

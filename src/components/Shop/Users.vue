@@ -13,7 +13,7 @@ import Axios from 'axios';
 import qs from 'qs';
 
 export default {
-  name: 'Shop',
+  name: 'ShopUsers',
   data() {
     return {
       products : [],

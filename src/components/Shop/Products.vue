@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1>Shop Moltin : Users</h1>
+        <h1>Shop Moltin : Products</h1>
         <div v-for="product in products" :key="product.id">
+            <div class="price">{{product.price[0].amount/100}} {{product.price[0].currency}}</div>
             <div>{{product.name}}</div>
-            <div>{{product.email}}</div>
         </div>
     </div>
 </template>
@@ -13,7 +13,7 @@ import Axios from 'axios';
 import qs from 'qs';
 
 export default {
-  name: 'Shop',
+  name: 'Shop-Product',
   data() {
     return {
       products : [],
@@ -44,7 +44,7 @@ export default {
                     'Content-Type':'application/json'
                     },
                 };
-            Axios.get(`https://api.moltin.com/v2/customers`, axiosConfig)
+            Axios.get(`https://api.moltin.com/v2/products`, axiosConfig)
                 .then((response) => {this.products = response.data.data})
                 .catch(function() {alert('no no 2')});
       },
@@ -55,11 +55,7 @@ export default {
           const axiosConfig = {
                 'content-type': 'application/x-www-form-urlencoded'
             };
-          Axios.post('https://api.moltin.com/oauth/access_token',qs.stringify({
-              'client_id':'daLrAjMqgtViHIzs711vxUyBPtCCvM2Gw509xgxc97',
-              'client_secret':'Tv3nI639lxG5XfTazEJPSIwYBieLFGZfVkGpWvgQww',
-              'grant_type':'client_credentials'
-            }),axiosConfig)
+          Axios.post('https://api.moltin.com/oauth/access_token',qs.stringify({'client_id':'daLrAjMqgtViHIzs711vxUyBPtCCvM2Gw509xgxc97','grant_type':'implicit'}),axiosConfig)
             .then((response) => {this.api.token = response.data; this.api.loaded = true})
             .then(() => this.loadProducts())
             .catch(function() {alert('no no 1')});
