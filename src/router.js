@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import Shop from './components/Shop.vue';
 import ShopProducts from './components/Shop/Products.vue';
 import ShopUsers from './components/Shop/Users.vue';
+import shopPaid from './components/Shop/Paid.vue';
 import Properties from './components/TableProperty.vue';
 
 const routes = [
@@ -25,6 +26,11 @@ const routes = [
     path: '/shop/users',
     name: 'shopUsers',
     component: ShopUsers,
+  },
+  {
+    path: '/shop/paid',
+    name: 'shopPaid',
+    component: shopPaid,
   },
   {
     path: '/property',

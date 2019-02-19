@@ -28,7 +28,7 @@ import qs from 'qs';
 
 
 
-const stripe = window.Stripe('pk_test_RbrEtpJVdCMKOSBHIZQ449Nd');
+//const stripe = window.Stripe('pk_test_RbrEtpJVdCMKOSBHIZQ449Nd');
 
 
 
